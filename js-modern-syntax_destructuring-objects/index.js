@@ -22,7 +22,7 @@ console.log(course)
 
 const user = { name: "John", years: 30 };
 
-const {name: name, years: age, isAdmin = false} = user ; 
+export const {name: name, years: age, isAdmin = false} = user ; 
 console.log(name, age, isAdmin)
 
 // EXERCISE 3
@@ -34,7 +34,7 @@ const dog = {
   breed: "husky",
   age: 5,
 };
-const {name: dogName, breed: dogBreed, age: dogAge} = dog 
+export const {name: dogName, breed: dogBreed, age: dogAge} = dog 
 console.log(dogName, dogBreed, dogAge)
 // EXERCISE 4
 // Extract the 'lastName' property from the person object as "personLastName".
@@ -45,5 +45,5 @@ const person = {
   age: 24,
   firstName: "Alex",
 };
-const {lastName: personLastName, ...moreInformation} = person
+export const {lastName: personLastName, ...moreInformation} = person
 console.log(personLastName, moreInformation)

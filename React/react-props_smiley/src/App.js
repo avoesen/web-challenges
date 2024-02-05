@@ -2,11 +2,16 @@ import React from "react";
 import "./styles.css";
 
 export default function App() {
-  return <Smiley isHappy/>;
+  return (
+    <div>
+      <Smiley isHappy />
+      <Smiley />
+    </div>
+  );
 }
 
 function Smiley({isHappy}) {
   return (
-    <p>{isHappy? "😊" : "😔"}</p>
+    <h1 aria-label="smiley">{isHappy? "😊" : "😔"}</h1>
   )
 }

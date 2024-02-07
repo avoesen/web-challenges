@@ -20,25 +20,13 @@ export default function PokemonList() {
         console.log(error);
       }
     }
-    
     loadPokemon();
   }, [page]);
 
-  function handleNextPage() {
-    if(nextPage) {
-      setPage(nextPage)
-    }
-  }
-  function handlePrevPage() {
-    if(prevPage){
-      setPage(prevPage)
-    }
-  }
-
   return (
     <main>
-      <button type="button" onClick={handlePrevPage}>Previous Page</button>
-      <button type="button" onClick={handleNextPage}>Next Page</button>
+      <button type="button" onClick={()=>{setPage(prevPage)}} disabled={!prevPage}>Previous Page</button>
+      <button type="button" onClick={()=>{setPage(nextPage)}}>Next Page</button>
       <ul>
         {pokemon.map(({ name }) => (
           <li key={name}>{name}</li>

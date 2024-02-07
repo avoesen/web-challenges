@@ -15,14 +15,13 @@ export default function App() {
     try {
       const response = await fetch(URL);
       const data = await response.json();
-      console.log(data.longitude, data.latitude);
       setCoords({longitude: data.longitude, latitude: data.latitude})
     }
     catch (error) {
       console.log(error)
     }
   }
-  
+
   useEffect(() => {
     const interval = setInterval(getISSCoords, 5000)
     return () => clearInterval(interval)

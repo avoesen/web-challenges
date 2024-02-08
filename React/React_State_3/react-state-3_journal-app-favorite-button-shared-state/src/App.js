@@ -35,15 +35,22 @@ const initialEntries = [
     notes: "My React-ion when I learned about React: Yay!",
   },
 ];
+const updatedEntries = initialEntries.map(entry => ({...entry, isFavorite: false})) 
 
 function App() {
-  const [entries, setEntries] = useState(initialEntries);
-
+  const [entries, setEntries] = useState(updatedEntries);
+  
   function handleAddEntry(newEntry) {
     const date = new Date().toLocaleDateString("en-us", {
       dateStyle: "medium",
     });
-    setEntries([{ id: uid(), date, ...newEntry }, ...entries]);
+    setEntries([{ id: uid(), date, isFavorite: false, ...newEntry }, ...entries]);
+  }
+
+  function handleToggleFavorite(id) {
+    const entriesIsFavorite = entries.map((entry) =>
+        entry.id === id ? { ...entry, isFavorite: !entry.isFavorite } : entry)
+    setEntries(entriesIsFavorite)
   }
 
   return (
@@ -51,7 +58,7 @@ function App() {
       <Header />
       <main className="app__main">
         <EntryForm onAddEntry={handleAddEntry} />
-        <EntriesSection entries={entries} />
+        <EntriesSection entries={entries} onToggleFavorite={handleToggleFavorite}/>
       </main>
       <Footer />
     </div>

@@ -39,7 +39,7 @@ const initialEntries = [
 
 
 function App() {
-  const [entries, setEntries,] = useLocalStorageState("entries",initialEntries);
+  const [entries, setEntries,] = useLocalStorageState("entries",{defaultValue: initialEntries});
   const [filter, setFilter] = useLocalStorageState("all", "favorites"); // "all" or "favorites"
  
 

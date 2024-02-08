@@ -35,4 +35,3 @@ export default function PokemonList() {
     </main>
   );
 }
-// () => {setNextPage(nextPage)}, 

@@ -6,6 +6,10 @@ export default function theFellowshipOfTheRing() {
     const volume1 = volumes.find(
      ({slug}) => slug === "the-fellowship-of-the-ring"
     );
+    const index = volumes.indexOf(volume1);
+     const prevPage = volumes[index - 1];
+     const nextPage = volumes[index + 1];
+
     return (
       <>
         <Link href="/volume">Back to main</Link>
@@ -24,7 +28,8 @@ export default function theFellowshipOfTheRing() {
             </li>
           ))}
         </ul>
-        <Link href="/volume/the-two-towers">next page</Link>
+        {prevPage && <Link href={`/volume/${prevPage.slug}`}>prev page</Link>}
+        {nextPage && <Link href={`/volume/${nextPage.slug}`}>next page</Link>}
       </>
     );
 }

@@ -4,16 +4,21 @@ import Image from "next/image";
 
 export default function theReturnOfTheKing() {
   const volume1 = volumes.find(({ slug }) => slug === "the-return-of-the-king");
+  const index = volumes.indexOf(volume1)
+
+  const prevPage = volumes[index -1]
+  const nextPage = volumes[index +1]
+
   return (
     <>
       <Link href="/volume">Back to main</Link>
       <h1>{volume1.title}</h1>
       <p>{volume1.description}</p>
       <Image
-        src={`/images/${volume1.slug}.png`}
+        src={volume1.cover}
         height={230}
         width={144}
-        alt={`${volume1.slug}`}
+        alt={volume1.slug}
       ></Image>
       <ul>
         {volume1.books.map((book) => (
@@ -22,7 +27,8 @@ export default function theReturnOfTheKing() {
           </li>
         ))}
       </ul>
-      <Link href="/volume/the-two-towers">prev page</Link>
+        {prevPage && (<Link href={`/volume/${prevPage.slug}`}>prev page</Link>)}
+        {nextPage && (<Link href={`/volume/${nextPage.slug}`}>next page</Link>)}
     </>
   );
 }

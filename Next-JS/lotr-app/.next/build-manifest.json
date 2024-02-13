@@ -22,6 +22,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/volume": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/volume.js"
+    ],
     "/volume/the-fellowship-of-the-ring": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

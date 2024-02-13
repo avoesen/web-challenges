@@ -22,10 +22,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/volume/the-fellowship-of-the-ring": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/volume/the-fellowship-of-the-ring.js"
+    ],
     "/volume/the-return-of-the-king": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/volume/the-return-of-the-king.js"
+    ],
+    "/volume/the-two-towers": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/volume/the-two-towers.js"
     ]
   },
   "ampFirstPages": []

@@ -1,13 +1,31 @@
 import { volumes } from "../lib/data";
+import Link from "next/link";
+import Image from "next/image"
 
 export default function theTwoTowers() {
-  //  const volume1 = volumes.find(
-  //    ({slug}) => slug === "the-fellowship-of-the-ring"
-  //  );
-  //  console.log(volumes);
+  const volume1 = volumes.find(
+    ({ slug }) => slug === "the-two-towers"
+  );
   return (
     <>
-      <h1>new title</h1>
+      <Link href="/volume">Back to main</Link>
+      <h1>{volume1.title}</h1>
+      <p>{volume1.description}</p>
+        <Image
+            src={`/images/${volume1.slug}.png`}
+            height={230}
+            width={144}
+            alt={`${volume1.slug}`}
+        ></Image>
+      <ul>
+        {volume1.books.map((book) => (
+          <li key={book.ordinal}>
+            {book.ordinal}: {book.title}
+          </li>
+        ))}
+      </ul>
+      <Link href="/volume/the-fellowship-of-the-ring">prev page</Link>
+      <Link href="/volume/the-return-of-the-king">next page</Link>
     </>
   );
 }

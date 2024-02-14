@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 export default function LordOfTheRings() {
      const router = useRouter(); 
     
-
     function getRandomElement(array) {
       return array[Math.floor(Math.random() * array.length)];
     }

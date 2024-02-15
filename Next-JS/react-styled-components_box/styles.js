@@ -1,10 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import { Lora } from "@next/font"
-
-const lora = Lora({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-});
 
 export const GlobalStyle = createGlobalStyle`
   *,
@@ -14,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: var(--font-family);
+    margin: 0;
+    font-family: system-ui;
   }
-  
 `;

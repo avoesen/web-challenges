@@ -8,7 +8,6 @@ import Chevron from "../../icons/Chevron.svg"
 import StyledList from "@/components/StyledList";
 import StyledLink from "@/components/StyledLink";
 import StyledDiv from "@/components/StyledDiv";
-import StyledBody from "@/components/StyledBody";
 import StyledImage from "@/components/StyledImage";
 
 
@@ -30,7 +29,7 @@ export default function VolumeDetail() {
 
   return (
     <>
-      <StyledLink $direction="column" href="/volumes">
+      <StyledLink  href="/volumes">
         <Chevron />
         All Volumes
       </StyledLink>
@@ -52,6 +51,7 @@ export default function VolumeDetail() {
           height={230}
         />
       </StyledDiv>
+      <StyledDiv>
       {previousVolume ? (
         <div>
           <StyledLink href={`/volumes/${previousVolume.slug}`}>
@@ -68,6 +68,7 @@ export default function VolumeDetail() {
           </StyledLink>
         </div>
       ) : null}
+      </StyledDiv>
     </>
   );
 }

@@ -13,7 +13,7 @@ export default function Volumes() {
       <StyledList>
         {volumes.map((volume) => (
           <li key={volume.id}>
-            <StyledLink href={`/volumes/${volume.slug}`}>
+            <StyledLink $direction="column" $width="80px" href={`/volumes/${volume.slug}`}>
               <StyledImage
                 src={volume.cover}
                 width={85}

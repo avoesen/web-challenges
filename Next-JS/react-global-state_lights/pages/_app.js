@@ -1,7 +1,6 @@
 import GlobalStyle from "../styles";
 import Layout from "../components/Layout";
-import { useEffect, useState } from "react";
-import useLocalStorageState from "use-local-storage-state";
+import { useState } from "react";
 
 const initialRooms = [
   {

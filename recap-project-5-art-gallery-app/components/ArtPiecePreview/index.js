@@ -4,7 +4,7 @@ import styled from "styled-components";
 import FavoriteButton from "../FavoriteButton";
 
 export default function ArtPiecePreview({onToggleFavorite, piece}) {
- const {dimensions, imageSource, title, artist, isFavorite, slug} = piece
+ const {dimensions, imageSource, name: title, artist, isFavorite, slug} = piece
  const {width, height} = dimensions
   return (
     <Card>

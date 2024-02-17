@@ -2,26 +2,41 @@ import styled from "styled-components";
 import ArtPiecePreview from "../ArtPiecePreview";
 import Link from "next/link";
 import Chevron from "../../assets/Chevron.svg"
-import Close from "../../assets/Close.svg"
+// import Close from "../../assets/Close.svg"
+import { useState} from "react";
 import useLocalStorageState from "use-local-storage-state";
 import { uid } from "uid";
 
 export default function ArtPiecesDetail({piece, onToggleFavorite}) {
   const [comments, setComments] = useLocalStorageState("comments", {defaultValue:[]})
+  const [message, setMessage] = useState()
   
   function handleAddComment(comment) {
    const date = new Date().toLocaleDateString("en-us", {
      dateStyle: "medium",
    });
    setComments([{slug, id: uid(), date, comment}, ...comments])
-   console.log(comments)
   }
+   
   function onSubmit(event) {
     event.preventDefault(); 
     const input = event.target.commentInput.value;
-    handleAddComment(input)
+    if(input !== "") {
+      handleAddComment(input)
+      setMessage("nice comment");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+    } else {
+      setMessage("missing input");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+     ; 
+    }
     event.target.reset()
   }
+  const {slug, genre, year} = piece
   const filteredComments = comments.filter((comment) => comment.slug === slug);
   
     return (
@@ -60,6 +75,7 @@ export default function ArtPiecesDetail({piece, onToggleFavorite}) {
           <label htmlFor="comment">Add comment:</label>
           <StyledInput id="comment" name="commentInput"></StyledInput>
           <StyledButton type="submit">submit</StyledButton>
+          <p>{message}</p>
         </StyledForm>
       </>
     );

@@ -23,7 +23,7 @@ export default function ArtPiecesDetail({piece, onToggleFavorite}) {
     const input = event.target.commentInput.value;
     if(input !== "") {
       handleAddComment(input)
-      setMessage("nice comment");
+      setMessage("thanks for your comment");
       setTimeout(() => {
         setMessage("");
       }, 2000);
@@ -44,10 +44,7 @@ export default function ArtPiecesDetail({piece, onToggleFavorite}) {
         <Link href="/art-pieces">
           <StyledSVG />
         </Link>
-        <ArtPiecePreview
-          piece={piece}
-          onToggleFavorite={onToggleFavorite}
-        />
+        <ArtPiecePreview piece={piece} onToggleFavorite={onToggleFavorite} />
         <StyledDIV $color="lightgray">
           <p>genre: {genre}</p>
 
@@ -75,7 +72,7 @@ export default function ArtPiecesDetail({piece, onToggleFavorite}) {
           <label htmlFor="comment">Add comment:</label>
           <StyledInput id="comment" name="commentInput"></StyledInput>
           <StyledButton type="submit">submit</StyledButton>
-          <p>{message}</p>
+          <StyledP>{message}</StyledP>
         </StyledForm>
       </>
     );
@@ -123,6 +120,7 @@ const StyledP = styled.p`
  font-style: italic;
  margin-left: 5px;
  margin-right: 5px;
+ text-align: center;
 
 `
 const StyledComment = styled.div`

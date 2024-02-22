@@ -16,6 +16,8 @@ export default function HomePage() {
       <h1>{data.name}</h1> 
       <p>phone: {data.phone}</p>
       <p>age: {data.age}</p>
+      <p>geohash {data.geohash}</p>
+      <p>twitter: {data.twitter}</p>
     </>
   )
 }

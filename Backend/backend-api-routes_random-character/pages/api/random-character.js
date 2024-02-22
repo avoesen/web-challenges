@@ -7,6 +7,8 @@ export default function handler(request, response) {
         name: chance.name(),
         phone: chance.phone(), 
         age: chance.age(), 
+        twitter: chance.twitter(), 
+        geohash: chance.geohash(), 
     }
     response.statusCode = 200;
     response.json(character)

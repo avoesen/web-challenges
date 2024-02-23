@@ -6,6 +6,7 @@ import Comments from "../Comments";
 import { useState } from "react";
 import ProductForm from "../ProductForm";
 import { StyledButton } from "../Button/Button.styled";
+import styled from "styled-components";
 
 export default function Product() {
   const [editMode, setEditMode] = useState(false);
@@ -42,6 +43,9 @@ export default function Product() {
     if (response.ok) {
       router.push("/");
     }
+    if (!response.ok) {
+      response.status(400).json({ error: "error" });
+    }
   }
   return (
     <>
@@ -52,17 +56,26 @@ export default function Product() {
           Price: {data.price} {data.currency}
         </p>
         {data.reviews.length > 0 && <Comments reviews={data.reviews} />}
-        <div>
+        <StyledDiv>
           <StyledLink href="/">Back to all</StyledLink>
-          <StyledButton type="button" onClick={() => setEditMode(!editMode)}>
+          <StyledButton
+            type="button"
+            $editMode={editMode}
+            onClick={() => setEditMode(!editMode)}
+          >
             ✏️
           </StyledButton>
           <StyledButton type="button" onClick={() => handleDeleteProduct()}>
             ❌
           </StyledButton>
-        </div>
+        </StyledDiv>
       </ProductCard>
       {editMode && <ProductForm onSubmit={handleEditProduct} id={id} />}
     </>
   );
 }
+
+const StyledDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;

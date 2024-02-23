@@ -1,6 +1,7 @@
 import ProductList from "../components/ProductList";
 import styled from "styled-components";
 import ProductForm from "../components/ProductForm";
+import { signIn } from "next-auth/react";
 
 const Heading = styled.h1`
   text-align: center;
@@ -19,6 +20,7 @@ export default function HomePage() {
       <ProductForm />
       <hr />
       <ProductList />
+      <button onClick={() => signIn}>sign in</button>
     </>
   );
 }
